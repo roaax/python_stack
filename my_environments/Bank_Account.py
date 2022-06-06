@@ -1,5 +1,6 @@
+
 class BankAccount:
-    def __init__(self, int_rate=0, balance=0): 
+    def __init__(self, int_rate=0.01, balance=0): 
         #         don't forget to add some default values for these parameters!
         # 		your code here! (remember, this is where we specify the attributes for our class)
         self.rate=int_rate
