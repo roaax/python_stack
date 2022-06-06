@@ -21,7 +21,7 @@ class User:
         self.account_balance -= amount
         # return self
     def display_user_balance(self):
-        print(f" User: {self.name} ------> Your Balance is: {self.account_balance} $")
+        print(f" User: {self.name} ------> Your Balance is: ${self.account_balance} ")
         return self
 
 
