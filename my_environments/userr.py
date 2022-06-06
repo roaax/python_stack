@@ -5,11 +5,9 @@ class User:
     def __init__ (self, int_rate=0.01 , balance=0 ):
         self.rate
         self.account
-    
     def make_deposit(self, amount):
         self.deposit()
         print(self.deposit)
-
     def make_withdrawal(self, amount):
         self.withdraw()
         # return self
@@ -21,8 +19,6 @@ class User:
     #     self.account_balance = self.account_balance - amount
     #     user.account_balance = user.account.balance + amount
     #     print(f" User: {self.name} ------> Transfare Balance is: ${self.account_balance} User: {user.name} ------> Transfare Balance is: ${user.account_balance}  ")
-
-
 Roaa=BankAccount()
 Fidaa = BankAccount()
 
