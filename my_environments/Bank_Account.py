@@ -5,7 +5,6 @@ class BankAccount:
         self.rate=int_rate
         self.account_balance=balance
         # don't worry about user info here; we'll involve the User class soon
-        
     def deposit(self, amount):
 		# your code here (increases the account balance by the given amount)
         self.account_balance += amount
