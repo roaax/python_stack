@@ -23,7 +23,10 @@ class User:
     def display_user_balance(self):
         print(f" User: {self.name} ------> Your Balance is: ${self.account_balance} ")
         return self
-
+    # def  transfer_money(self, user, amount):
+    #     self.account_balance = self.account_balance - amount
+    #     user.account_balance = user.account.balance + amount
+    #     print(f" User: {self.name} ------> Transfare Balance is: ${self.account_balance} User: {user.name} ------> Transfare Balance is: ${user.account_balance}  ")
 
 Roaa= User("Roaa", )
 Fidaa = User("Fidaa", )
@@ -55,3 +58,4 @@ Ajwan.display_user_balance()
 # print(Roaa.name , Roaa.make_deposit())	
 # print(Fidaa.name , Fidaa.account_balance)
 # print(Ajwan.name , Ajwan.account_balance)
+# Roaa.transfer_money(Ajwan , 1)
