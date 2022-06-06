@@ -9,9 +9,9 @@ import random
 print("---------1-------------")
 def randInt(min = 0,max = 100):
     if max<0:
-        print("sorry we need a max number greater than 0")
+        print("number isn't  greater than 0, Try again!")
     elif min > max:
-        print("sorry please give a max greater than the min")
+        print(" max number isn't greater than the min number , Try again!")
     else: 
         if max != 100 and min != 0:
             return round(random.random()*(max-min)+min)
