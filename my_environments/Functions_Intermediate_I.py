@@ -16,7 +16,7 @@ def randInt(min = 0,max = 100):
         if max != 100:
             return round(random.random()*max)
     else:
-        print("Try again, The num should be min > max,and  max < 0")
+        print("Try again, The num should be min > max and  max < 0")
     return round(random.random()*100)
 
 print(randInt()) # should print a random integer between 0 to 100
