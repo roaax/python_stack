@@ -71,41 +71,11 @@ dojo = {
     'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
     'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']
 }
-def printInfo(dojo):
-        
-    for x in dojo:
-        # print(str(len.dojo[0]) , dojo[0] )
-        print(x)
-print(str(len(dojo['locations'])) + ' locations')
-printInfo(dojo['locations'])
-print("\n")
-print(str(len(dojo['instructors'])) + ' instructors')
-printInfo(dojo['instructors'])
+def printInfo(_dict):
+    for x in _dict:
+        print(len(_dict[x]), x.upper())
+        for i in _dict[x]:
+            print(i)
+        print("")
 
-
-#     return len(dojo)
-# print(printInfo(str(dojo)))
-
-#     size_dojo=len(dojo[0])
-#     print(str(size_dojo[0]))
-# print(printInfo('location')
-
-# output:
-# 7 LOCATIONS
-# San Jose
-# Seattle
-# Dallas
-# Chicago
-# Tulsa
-# DC
-# Burbank
-    
-# 8 INSTRUCTORS
-# Michael
-# Amy
-# Eduardo
-# Josh
-# Graham
-# Patrick
-# Minh
-# Devon
+printInfo(dojo)
