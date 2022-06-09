@@ -9,8 +9,15 @@ def dojo():
     return 'Dojo!' 
 
 @app.route('/say/<name>')
-def name(name):
+def say(name):
     return "Hi " + name 
+
+# @app.route('/repeat/<int:repeat_time>/<msg>')
+# def repeat(repeat_time,msg):
+#     message=""
+#     for i in range(repeat_time):
+#         message += msg +"<br>"
+#     return message
 
 @app.route('/repeat/<num>/<name>')
 def repeat(num,name):
