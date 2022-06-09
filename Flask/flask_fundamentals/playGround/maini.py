@@ -1,8 +1,8 @@
 from flask import Flask, render_template
-app = Flask(__name__)    # Create a new instance of the Flask class called "app"
-@app.route('/')          # The "@" decorator associates this route with the function immediately following
+app = Flask(__name__)    
+@app.route('/')          
 def hello_world():
-    return 'write /plat in bar to start'  # Return the string 'Hello World!' as a response
+    return 'write /play to start' 
 
 @app.route('/play')
 def repeat():
@@ -15,6 +15,6 @@ def num(num):
 @app.route('/play/<num>/<color>')
 def color(num,color):
     return render_template('index3.html',_num = int(num) , _color=color)
-if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
+if __name__=="__main__":  
     app.run(debug=True) 
 
