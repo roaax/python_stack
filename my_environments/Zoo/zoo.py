@@ -23,14 +23,14 @@ class Zoo:
             animal.display_info()
 
 #lets add some animals to the zoo
-zoo1 = Zoo("Riys's Zoo")
-zoo1.add_Cheetah("Cleo")
+zoo1 = Zoo("John's Zoo")
+zoo1.add_Cheetah("Simba")
 zoo1.add_Cheetah("Rock")
 
 zoo1.add_Deer("Nala")
 zoo1.add_Deer("Toto")
 
-zoo1.add_Crocodil("Flash")
+zoo1.add_Crocodil("Rajah")
 zoo1.add_Crocodil("Frank")
 
 zoo1.print_all_info()
