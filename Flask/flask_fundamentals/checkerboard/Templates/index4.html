@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checker board</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    
+    <style>
+        table tr td{
+            width: 50px;
+            height: 50px;
+        }
+        .color1{
+            background-color: {{_color}};
+        }
+        .color2{
+            background-color: {{_color2}};
+        }
+    </style>
 </head>
 <body>
     <table>
-        {% for i in range(4):%}
+        {% for i in range(_numx):%}
         <tr>
-            {% for i in range(4):%}
+            {% for i in range(_numy):%}
             <td class="color1"></td>
             <td class="color2"></td>
             {%endfor%}
         </tr>
         <tr>
-            {% for i in range(4):%}
+            {% for i in range(_numy):%}
             <td class="color2"></td>
             <td class="color1"></td>
             {%endfor%}

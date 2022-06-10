@@ -11,6 +11,9 @@ def index2(num):
 def index3(x , y):
     return render_template('index3.html', _num1=int(x) , _num2=int(y))
 
+@app.route('/<x>/<y>/<color>/<color2>')
+def numxy_color(x , y, color, color2):
+    return render_template('index4.html', _numx = int(x), _numy = int(y), _color=color, _color2 = color2)
 if __name__=="__main__":   
     app.run(debug=True) 
 
