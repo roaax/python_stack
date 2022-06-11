@@ -14,11 +14,24 @@
 
     <div class="res">
         <h3>Submitted Info:</h3>
-        <h4>Name: <p> {{ name_on_template }}</p></h4>
-        <h4>Dojo Location:  <p> {{ location_on_template }}</p></h4>
-        <h4>Favorite Language:  <p>{{ favLanguage_on_template }}</p></h4>
-        <h4>Comment: <p> {{ comment_on_template }}</p></h4>
-        <br>
+        <table >
+            <tr>
+                <td>Name:</td>
+                <td>{{name_on_template}}</td>
+            </tr>
+            <tr>
+                <td>Dojo Location:</td>
+                <td>{{location_on_template}}</td>
+            </tr>
+            <tr>
+                <td>Favorite Language:</td>
+                <td>{{favLanguage_on_template}}</td>
+            </tr>
+            <tr>
+                <td>Comment:</td>
+                <td>{{comment_on_template}}</td>
+            </tr>
+            </table>
         <br>
         <form action="/goBack" method="post">
             {% csrf_token %}
