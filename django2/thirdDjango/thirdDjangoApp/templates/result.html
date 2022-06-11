@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="res">
+        <h3>Submitted Info:</h3>
+        <h4>Name: <p> {{ name_on_template }}</p></h4>
+        <h4>Dojo Location:  <p> {{ location_on_template }}</p></h4>
+        <h4>Favorite Language:  <p>{{ favLanguage_on_template }}</p></h4>
+        <h4>Comment: <p> {{ comment_on_template }}</p></h4>
+        <br>
+        <br>
+        <form action="/goBack" method="post">
+            {% csrf_token %}
+            <input class="submit" name="goBack" type="submit" value="Go Back">
+        </form>
+    
+    </div>
+</body>
+
+</html>
