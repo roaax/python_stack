@@ -8,4 +8,3 @@ def index(request):
         "time": strftime(" %H:%M %p", gmtime())
     }
     return render(request,'index.html', context)
-
