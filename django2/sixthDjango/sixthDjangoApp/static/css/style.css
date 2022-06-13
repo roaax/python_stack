@@ -1,9 +1,9 @@
 .wrapping{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 3% 7%;
+    margin: 0% auto;
+    padding: 2%;
 }
 .singleForm{
-    
     border:2px solid black;
     display: flex;
     flex-direction: column;
@@ -51,4 +51,9 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.activity{
+    border: 2px solid black;
+    height: 200px;
+    overflow: scroll;
 }

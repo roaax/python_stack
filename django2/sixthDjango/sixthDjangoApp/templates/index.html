@@ -12,10 +12,10 @@
 
 <body>
     <div class="wrapping">
-        
+
         <div class=left>
-            <label for="gold">Your Gold:  </lable>
-                <input type="hidden" name="gold" />  {{gold}}
+            <label for="gold">Your Gold: </lable>
+                <input type="hidden" name="gold" /> {{gold}}
         </div>
 
         <div class="forms">
@@ -75,17 +75,25 @@
 
         <div class="activities">
             <p>Activities:</p>
-            <textarea name="activity" cols="60" rows="6">
+            <div name="activity" class="activity">
                 {% for i in activities %}
+                {% if 'failed' in i %}
+                <p style="color: red;">
                     {{i}}
-                {%endfor%}
-            </textarea>
+                </p>
+                {% else %}
+                <p style="color: green;">
+                    {{i}}
+                </p>
+                {% endif %}
+                {% endfor %}
+                </textarea>
+                <br>
+            </div>
             <br>
+            <a href="/reset" role="button">reset</a>
         </div>
-        <br>
-        <a href="/reset" role="button">reset</a>
-    </div>
-    
+
 </body>
 
 </html>
