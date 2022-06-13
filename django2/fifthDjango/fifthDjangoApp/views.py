@@ -1,5 +1,3 @@
-from urllib import request
-from urllib.request import Request
 from django.shortcuts import render, redirect
 import random 	                # import the random module
 

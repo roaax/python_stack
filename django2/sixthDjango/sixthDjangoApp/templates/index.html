@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="wrapping">
+        
+        <div class=left>
+            <label for="gold">Your Gold:  </lable>
+                <input type="hidden" name="gold" />  {{gold}}
+        </div>
+
+        <div class="forms">
+
+            <div class="singleForm">
+                <h2>Farm</h2>
+                <br>
+                <p>(earns 10-20 gold!)</p>
+                <br>
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="farm" />
+                    <button type="submit">Find Gold</button>
+                    <br> <br>
+                </form>
+            </div>
+
+            <div class="singleForm">
+                <h2>Cave</h2>
+                <br>
+                <p>(earns 10-20 gold!)</p>
+                <br>
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="cave" />
+                    <button type="submit">Find Gold!</button>
+                    <br> <br>
+                </form>
+            </div>
+
+            <div class="singleForm">
+                <h2>House</h2>
+                <br>
+                <p>(earns 10-20 gold!)</p>
+                <br>
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="house" />
+                    <button type="submit">Find Gold!</button>
+                    <br> <br>
+                </form>
+            </div>
+
+            <div class="singleForm">
+                <h2>Quest</h2>
+                <br>
+                <p>(earns/takes 0-50 gold!)</p>
+                <br>
+                <form action="/process_money" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="quest" />
+                    <button type="submit">Find Gold!</button>
+                    <br> <br>
+                </form>
+            </div>
+        </div>
+
+        <div class="activities">
+            <p>Activities:</p>
+            <textarea name="activity" cols="60" rows="6">
+                {% for i in activities %}
+                    {{i}}
+                {%endfor%}
+            </textarea>
+            <br>
+        </div>
+
+    </div>
+    <a href="/reset" role="button">reset</a>
+</body>
+
+</html>
