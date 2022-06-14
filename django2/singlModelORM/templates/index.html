@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Information </title>
+</head>
+<body>
+    <h1>ORM</h1>
+    <p>Displaying data:</p>
+    <p>Users:</p>
+    <ul>
+        {% for person in people%}
+        <li>Name: {{person.name}} Birth Date: {{person.birthDate}} Favorit Number: {{person.number}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
