@@ -7,13 +7,41 @@
     <title>Users Information </title>
 </head>
 <body>
-    <h1>ORM</h1>
-    <p>Displaying data:</p>
-    <p>Users:</p>
-    <ul>
-        {% for person in people%}
-        <li>Name: {{person.name}} Birth Date: {{person.birthDate}} Favorit Number: {{person.number}}</li>
-        {% endfor %}
-    </ul>
+    <h1>All the Users</h1>
+    <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            {% for user in User %}
+            <tr>
+                <td>{{user.ID}}</td>
+                <td>{{user.fname}} {{user.lname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+            {%endfor%}
+    </table>
+    <hr>
+    <h2>ADd a User</h2>
+    <form action="/createUser" method="post">
+        {%csrf_token%}
+        <div>
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname">
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname">
+        </div>
+        <div>
+            <label for="email"> Email:</label>
+            <input type="text" name="email">
+            <label for="age"> Age:</label>
+            <input type="number" name="age">
+            
+        </div>
+        <input type="submit" value="Add">
+    </form>
 </body>
 </html>
