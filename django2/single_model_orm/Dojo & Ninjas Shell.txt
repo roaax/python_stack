@@ -1,0 +1,136 @@
+ilegend@Is-MacBook-Pro django2 % cd ..               
+ilegend@Is-MacBook-Pro python_stack % cd my_environments 
+ilegend@Is-MacBook-Pro my_environments % ls 
+ For_Loop_Basic_II.py           Selection_sort.py
+Bank_Account.py                 Zoo
+Chaining_Methods.py             Zoo.py
+Functions_Basic_I.py            __pycache__
+Functions_Basic_II.py           djangoPy3Env
+Functions_Intermediate_I.py     for_loop_basic1.py
+Functions_Intermediate_II.py    py3Env
+Hello_World.py                  user.py
+Iteration_sort.py               user_with_bank
+Math_Dojo.py                    userr.py
+ilegend@Is-MacBook-Pro my_environments % source djangoPy3Env/bin/activate
+(djangoPy3Env) ilegend@Is-MacBook-Pro my_environments % cd 
+\ For_Loop_Basic_II.py        Selection_sort.py
+Bank_Account.py               Zoo/
+Chaining_Methods.py           Zoo.py
+Functions_Basic_I.py          __pycache__/
+Functions_Basic_II.py         djangoPy3Env/
+Functions_Intermediate_I.py   for_loop_basic1.py
+Functions_Intermediate_II.py  py3Env/
+Hello_World.py                user.py
+Iteration_sort.py             user_with_bank/
+Math_Dojo.py                  userr.py
+(djangoPy3Env) ilegend@Is-MacBook-Pro my_environments % cd ..                    
+(djangoPy3Env) ilegend@Is-MacBook-Pro python_stack % cd django2 
+(djangoPy3Env) ilegend@Is-MacBook-Pro django2 % cd dojo_ninjas_proj 
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % ls
+dojo_ninjas_app         dojo_ninjas_proj        manage.py
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app/migrations/0001_initial.py
+    - Create model Dojos
+    - Create model Ninjas
+
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying dojo_ninjas_app.0001_initial... OK
+  Applying sessions.0001_initial... OK
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py shell
+Python 3.9.13 (main, May 24 2022, 21:13:51) 
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import *
+>>> Dojos.objects.create(name='firstdojo',city='US',state='California')
+<Dojos: namefirstdojo | city US | state: California >
+>>> Dojos.objects.create(name='seconddojo',city='US',state='Florida')
+<Dojos: nameseconddojo | city US | state: Florida >
+>>> Dojos.objects.create(name='thirddojo',city='US',state='Arizona')
+<Dojos: namethirddojo | city US | state: Arizona >
+>>> fdojo= Dojos.objects.get(id=1)
+>>> fdojo.delete()
+(1, {'dojo_ninjas_app.Dojos': 1})
+>>> sdojo= Dojos.objects.get(id=2)
+>>> sdojo.delete()
+(1, {'dojo_ninjas_app.Dojos': 1})
+>>> 
+>>> thdojo= Dojos.objects.get(id=3)
+>>> thdojo.delete()
+(1, {'dojo_ninjas_app.Dojos': 1})
+>>> 
+>>> Dojos.objects.create(name='firstdojo',city='US',state='California')
+<Dojos: namefirstdojo | city US | state: California >
+>>> Dojos.objects.create(name='seconddojo',city='US',state='Florida')
+<Dojos: nameseconddojo | city US | state: Florida >
+>>> Dojos.objects.create(name='thirddojo',city='US',state='Arizona')
+<Dojos: namethirddojo | city US | state: Arizona >
+>>> 
+>>> Ninjas.objects.create(first_name='Roaa',last_name='Albishri',dojo_id=Dojos.objects.get(id=4))
+<Ninjas: Ninjas object (1)>
+>>> Ninjas.objects.create(first_name='Ajwan',last_name='Albishri',dojo_id=Dojos.objects.get(id=4))
+<Ninjas: Ninjas object (2)>
+>>> Ninjas.objects.create(first_name='Fidaa',last_name='Alsubhi',dojo_id=Dojos.objects.get(id=4))
+<Ninjas: Ninjas object (3)>
+>>> 
+>>> Ninjas.objects.create(first_name='Najwa',last_name='Almasoudi',dojo_id=Dojos.objects.get(id=5))
+<Ninjas: Ninjas object (4)>
+>>> Ninjas.objects.create(first_name='Sara',last_name='Alghamdi',dojo_id=Dojos.objects.get(id=5))
+<Ninjas: Ninjas object (5)>
+>>> Ninjas.objects.create(first_name='Aziza',last_name='Alshahrani',dojo_id=Dojos.objects.get(id=5))
+<Ninjas: Ninjas object (6)>
+>>> 
+>>> Ninjas.objects.create(first_name='Wadha',last_name='Albishri',dojo_id=Dojos.objects.get(id=6))
+<Ninjas: Ninjas object (7)>
+>>> Ninjas.objects.create(first_name='Eman',last_name='Albishri',dojo_id=Dojos.objects.get(id=6))
+<Ninjas: Ninjas object (8)>
+>>> Ninjas.objects.create(first_name='Bu',last_name='Albishri',dojo_id=Dojos.objects.get(id=6))
+<Ninjas: Ninjas object (9)>
+>>> 
+>>> Ninjas.objects.filter(dojo_id=Dojos.objects.first())
+<QuerySet [<Ninjas: Ninjas object (1)>, <Ninjas: Ninjas object (2)>, <Ninjas: Ninjas object (3)>]>
+>>> Ninjas.objects.filter(dojo_id=Dojos.objects.last())
+<QuerySet [<Ninjas: Ninjas object (7)>, <Ninjas: Ninjas object (8)>, <Ninjas: Ninjas object (9)>]>
+>>> Ninjas.objects.last()
+<Ninjas: Ninjas object (9)>
+>>> 
+>>> exit()
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app/migrations/0002_alter_dojos_desc.py
+    - Alter field desc on dojos
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_alter_dojos_desc... OK
+(djangoPy3Env) ilegend@Is-MacBook-Pro dojo_ninjas_proj % python manage.py shell
+Python 3.9.13 (main, May 24 2022, 21:13:51) 
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojo_ninjas_app.models import *
+>>> Dojos.objects.create(name='new dojo',city='U.S',state='Alabama',desc='updated dojo')
+<Dojos: name: new dojo | city: U.S | state: Alabama >
+>>> 
