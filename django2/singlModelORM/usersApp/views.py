@@ -1,6 +1,5 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect , HttpResponse
-from flask import redirect
 from .models import *
 
 # Create your views here.

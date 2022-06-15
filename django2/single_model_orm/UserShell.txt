@@ -1,0 +1,68 @@
+ilegend@Is-MacBook-Pro django2 % cd ..               
+ilegend@Is-MacBook-Pro python_stack % cd my_environments 
+ilegend@Is-MacBook-Pro my_environments % ls                       
+ For_Loop_Basic_II.py           Hello_World.py                  djangoPy3Env
+Bank_Account.py                 Iteration_sort.py               for_loop_basic1.py
+Chaining_Methods.py             Math_Dojo.py                    py3Env
+Functions_Basic_I.py            Selection_sort.py               user.py
+Functions_Basic_II.py           Zoo                             user_with_bank
+Functions_Intermediate_I.py     Zoo.py                          userr.py
+Functions_Intermediate_II.py    __pycache__
+ilegend@Is-MacBook-Pro my_environments % source djangoPy3Env/bin/activate
+(djangoPy3Env) ilegend@Is-MacBook-Pro my_environments % cd ..
+(djangoPy3Env) ilegend@Is-MacBook-Pro python_stack % cd django2         
+(djangoPy3Env) ilegend@Is-MacBook-Pro django2 % cd single_model_orm 
+(djangoPy3Env) ilegend@Is-MacBook-Pro single_model_orm % python manage.py makemigrations
+Migrations for 'singleModelApp':
+  singleModelApp/migrations/0001_initial.py
+    - Create model User
+(djangoPy3Env) ilegend@Is-MacBook-Pro single_model_orm % python manage.py migrate       
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, singleModelApp
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+  Applying singleModelApp.0001_initial... OK
+(djangoPy3Env) ilegend@Is-MacBook-Pro single_model_orm % python manage.py shell         
+Python 3.9.13 (main, May 24 2022, 21:13:51) 
+[Clang 13.1.6 (clang-1316.0.21.2)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from singleModelApp.models import *
+>>> User.objects.create(first_name='Roaa',last_name='Albishri',email_address='Roaa@gmail.com',age=23)
+<User: <User object: First Name: Roaa | Last Name: Albishri | Email Address: Roaa@gmail.com | Age: (23)| Created At: (2022-06-15 08:06:34.126784+00:00) | Updated At: (2022-06-15 08:06:34.127222+00:00) >>
+>>> User.objects.create(first_name='Aziza',last_name='Alshahrani',email_address='Aziza@gmail.com',age=28)
+<User: <User object: First Name: Aziza | Last Name: Alshahrani | Email Address: Aziza@gmail.com | Age: (28)| Created At: (2022-06-15 08:07:35.635177+00:00) | Updated At: (2022-06-15 08:07:35.635255+00:00) >>
+>>> User.objects.create(first_name='Sara',last_name='Alghamdi',email_address='Sara@gmail.com',age=22)
+<User: <User object: First Name: Sara | Last Name: Alghamdi | Email Address: Sara@gmail.com | Age: (22)| Created At: (2022-06-15 08:08:16.535773+00:00) | Updated At: (2022-06-15 08:08:16.535847+00:00) >>
+>>> User.objects.all()
+<QuerySet [<User: <User object: First Name: Roaa | Last Name: Albishri | Email Address: Roaa@gmail.com | Age: (23)| Created At: (2022-06-15 08:06:34.126784+00:00) | Updated At: (2022-06-15 08:06:34.127222+00:00) >>, <User: <User object: First Name: Aziza | Last Name: Alshahrani | Email Address: Aziza@gmail.com | Age: (28)| Created At: (2022-06-15 08:07:35.635177+00:00) | Updated At: (2022-06-15 08:07:35.635255+00:00) >>, <User: <User object: First Name: Sara | Last Name: Alghamdi | Email Address: Sara@gmail.com | Age: (22)| Created At: (2022-06-15 08:08:16.535773+00:00) | Updated At: (2022-06-15 08:08:16.535847+00:00) >>]>
+>>> User.objects.first()
+<User: <User object: First Name: Roaa | Last Name: Albishri | Email Address: Roaa@gmail.com | Age: (23)| Created At: (2022-06-15 08:06:34.126784+00:00) | Updated At: (2022-06-15 08:06:34.127222+00:00) >>
+>>> obj= User.objects.get(id=3)
+>>> obj.last_name="Pancakes"
+>>> obj.save()
+>>> obj2= User.objects.get(id=2)
+>>> obj2.delete()
+(1, {'singleModelApp.User': 1})
+>>> User.objects.all().order_by("first_name")
+<QuerySet [<User: <User object: First Name: Roaa | Last Name: Albishri | Email Address: Roaa@gmail.com | Age: (23)| Created At: (2022-06-15 08:06:34.126784+00:00) | Updated At: (2022-06-15 08:06:34.127222+00:00) >>, <User: <User object: First Name: Sara | Last Name: Pancakes | Email Address: Sara@gmail.com | Age: (22)| Created At: (2022-06-15 08:08:16.535773+00:00) | Updated At: (2022-06-15 08:08:16.535847+00:00) >>]>
+>>> User.objects.all().order_by("-first_name")
+<QuerySet [<User: <User object: First Name: Sara | Last Name: Pancakes | Email Address: Sara@gmail.com | Age: (22)| Created At: (2022-06-15 08:08:16.535773+00:00) | Updated At: (2022-06-15 08:08:16.535847+00:00) >>, <User: <User object: First Name: Roaa | Last Name: Albishri | Email Address: Roaa@gmail.com | Age: (23)| Created At: (2022-06-15 08:06:34.126784+00:00) | Updated At: (2022-06-15 08:06:34.127222+00:00) >>]>
+>>> 
