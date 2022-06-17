@@ -2,7 +2,7 @@
     /* margin: 3% 8%; */
     margin: 2% auto;
     width: 70%;
-    height: 600px;
+    height: 700px;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.59);
     border-radius: 5px;
@@ -27,7 +27,7 @@ h2{
     flex-direction: column;
     align-items: center;
     height: 400px;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 body{
     background-image: url('img.webp');
@@ -40,6 +40,8 @@ a{
     text-decoration: none;
 }
 h1{
+    display: flex;
+    justify-content: center;
     margin: 0%;
     margin-left: 2%;
 }
