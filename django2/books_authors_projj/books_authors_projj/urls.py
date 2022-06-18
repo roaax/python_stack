@@ -1,4 +1,4 @@
-"""books_authors_proj URL Configuration
+"""books_authors_projj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('',include('books_authors_app.urls')),
+    path('', include("books_authors_appp.urls")),
     path('admin/', admin.site.urls),
 ]

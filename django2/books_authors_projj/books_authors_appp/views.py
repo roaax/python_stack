@@ -1,4 +1,4 @@
-from multiprocessing import context
+
 from django.shortcuts import render, redirect
 from .models import *
 
@@ -30,21 +30,21 @@ def authors(request):
 
 # Creat an author and add it to th table
 def addAuthor(request):
-        form=request.POST
-
-        Author.objects.create(
-            first_name=form["first_name"],
-            last_name=form["last_name"],
-            notes=form["notes"],
-        )
+        if request.method=='POST':
+            _addAuthor= Author.objects.create(
+                first_name=request.POST['first_name'],
+                last_name=request.POST['last_name'],
+                notes=request.POST['notes'],
+                
+            )
+            _addAuthor.save()
         return redirect('/authors')
 
 #new page with ALL information of Book [books path]
 def book_info(request , book_id):
     context={
         "book":Book.objects.get(id=book_id),
-        "authors":Author.objects.all(),
-        'listOfAuthorsInBook':Book.objects.get(id=book_id).authors.all()
+        "authors":Author.objects.all()
     }
     return render(request, 'book_info.html' , context)
 
@@ -73,15 +73,8 @@ def addBookToAuthor(request, author_id):
     
     return redirect(f"/authors/{author_id}")
 
-# if request.method=='POST':
-        #     _addAuthor= Author.objects.create(
-        #         first_name=request.POST['first_name'],
-        #         last_name=request.POST['last_name'],
-                
-        #     )
-        #     _addAuthor.save()
-        # return redirect('/authors')
-#                 notes=request.POST['notes'],
+# 
+#                 
 # 
 
 
@@ -104,3 +97,6 @@ def addBookToAuthor(request, author_id):
 #     author.books.add(book)
     
 #     return redirect(f"/authors/{author_id}")
+#             first_name=form["first_name"],
+            # last_name=form["last_name"],
+            # notes=form["notes"],
