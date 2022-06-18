@@ -21,10 +21,10 @@ def addBook(request):
         return redirect('/')
         
 
-def authors(request):
-    authorss = Author.objects.all()
+def author(request):
+    authors = Author.objects.all()
     context = {
-        'authors':authorss
+        'authors':authors
     }
     return render(request,'authors.html',context)
 

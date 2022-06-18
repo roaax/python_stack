@@ -5,7 +5,7 @@ urlpatterns = [
     path('addBook',views.addBook),
     path('books/<book_id>',views.book_info),
     path('addAuthorToBook/<int:book_id>', views.addAuthorToBook),
-    path('authors',views.authors),
+    path('authors',views.author),
     path('addAuthor',views.addAuthor),
     path('authors/<author_id>', views.author_info),
     path('addBookToAuthor/<int:book_id>', views.addBookToAuthor),
