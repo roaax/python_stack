@@ -12,7 +12,7 @@ def index(request):
 
 # Creat new book to table
 def addBook(request):
-        if request.method=='POST':
+        if request.method['form']=='POST':
             _addBook= Book.objects.create(
                 title=request.POST['title'],
                 desc=request.POST['desc'],
@@ -77,26 +77,3 @@ def addBookToAuthor(request, author_id):
 #                 
 # 
 
-
-
-# Author Page --------------------------
-
-
-
-    
-
-# # --------------------------------------------------------------------
-
-
-#
-
-# def addAuthorToBook(request, author_id):
-#     author= Author.objects.get(id=author_id),
-#     book= Book.objects.get(id=request.POST['Book_id'])
-
-#     author.books.add(book)
-    
-#     return redirect(f"/authors/{author_id}")
-#             first_name=form["first_name"],
-            # last_name=form["last_name"],
-            # notes=form["notes"],

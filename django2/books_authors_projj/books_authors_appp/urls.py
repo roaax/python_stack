@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
 urlpatterns = [
+
     path('', views.index),
     path('addBook',views.addBook),
-    path('books/<book_id>',views.book_info),
+    path('books/<int:book_id>',views.book_info),
     path('addAuthorToBook/<int:book_id>', views.addAuthorToBook),
     path('authors',views.author),
     path('addAuthor',views.addAuthor),
