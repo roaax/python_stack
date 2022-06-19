@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    
+    
+    <div class="main">
+        <div class="showInfo">
+    <h1>TV Show {{nShow.id}}</h1>
+
+    <p>Title: {{nShow.title}}</p>
+    <p>Network: {{nShow.network}}</p>
+    <p>Release Date: {{nShow.release_date}}</p>
+    <p>Description: {{nShow.desc}}</p>
+
+    <p>Last Updated: {{nShow.updated_at}}</p>
+
+    <a href="/shows/{{nShow.id}}/edit">Edit</a> |
+    <a href="/shows/{{nShow.id}}/delete">Delete</a>
+    </div>
+    <div class="url">
+    <a href="/shows">Go Back</a>
+    </div>
+    </div>
+</body>
+</html>

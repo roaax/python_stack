@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="main">
+        <div class="newShow">
+    <h1>Add a New Show</h1>
+    <form action="/shows/create" method="post">
+        {%csrf_token%}
+        <div>
+            <label>Title</label>
+            <input type="text" name="title" required>
+        </div>
+        <br>
+        <div>
+            <label>Network</label>
+            <input type="text" name="network" required>
+        </div>
+        <br>
+        <div>
+            <label>Release Date</label>
+            <input type="date" name="release_date" required>
+        </div>
+        <br>
+        <div>
+            <label>Description</label><br>
+            <textarea type="text" name="desc" cols="30" rows="5"></textarea>
+        </div>
+        <button>Create</button>
+    </form>
+    </div>
+    
+    <div class="url">
+        <a href="/shows">Go Back</a>
+            </div>
+</div>
+</body>
+</html>
