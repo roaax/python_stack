@@ -1,127 +1,127 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Sports Leagues</title>
-	</head>
-	<body>
+    <head>
+        <title>Sports Leagues</title>
+    </head>
+    <body>
         <h1>Leagues</h1>
-		<ol>
+        <ol>
             {% for league in leagues %}
                 <li>{{league.name}}</li>
             {% empty %}
                 <p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
             {% endfor %}
-		</ol>
-		<h1>Teams</h1>
-		<ol>
-			{% for team in teams %}
-				<li>{{team.location}} {{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>Players</h1>
-		<ol>
-			{% for player in players %}
-				<li>{{player.first_name}} {{player.last_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>All Baseball Leagues</h1>
-		<ol>
-			{% for league in all_baseball_leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>All Women Leagues</h1>
-		<ol>
-			{% for league in all_women_leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>all leagues where sport is any type of hockey</h1>
-		<ol>
-			{% for league in all_hockey_leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>all leagues where sport is something OTHER THAN football</h1>
-		<ol>
-			{% for league in all_leagues_are_not_football %}
-				<li>{{league.name}} </li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>all leagues that call themselves "conferences" | Conferences Leagues</h1>
-		<ol>
-			{% for league in all_conferences_leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        </ol>
+        <h1>Teams</h1>
+        <ol>
+            {% for team in teams %}
+                <li>{{team.location}} {{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>Players</h1>
+        <ol>
+            {% for player in players %}
+                <li>{{player.first_name}} {{player.last_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>All Baseball Leagues</h1>
+        <ol>
+            {% for league in all_baseball_leagues %}
+                <li>{{league.name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>All Women Leagues</h1>
+        <ol>
+            {% for league in all_women_leagues %}
+                <li>{{league.name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>all leagues where sport is any type of hockey</h1>
+        <ol>
+            {% for league in all_hockey_leagues %}
+                <li>{{league.name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>all leagues where sport is something OTHER THAN football</h1>
+        <ol>
+            {% for league in all_leagues_are_not_football %}
+                <li>{{league.name}} </li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
+        <h1>all leagues that call themselves "conferences" | Conferences Leagues</h1>
+        <ol>
+            {% for league in all_conferences_leagues %}
+                <li>{{league.name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>all leagues in the Atlantic region | Atlantic Leagues</h1>
-		<ol>
-			{% for league in all_atlantic_leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        <h1>all leagues in the Atlantic region | Atlantic Leagues</h1>
+        <ol>
+            {% for league in all_atlantic_leagues %}
+                <li>{{league.name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>all teams based in Dallas | Dallas Teams</h1>
-		<ol>
-			{% for team in all_dallas_teams %}
-				<li>{{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        <h1>all teams based in Dallas | Dallas Teams</h1>
+        <ol>
+            {% for team in all_dallas_teams %}
+                <li>{{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>all teams named the Raptors | Raptors</h1>
-		<ol>
-			{% for team in all_raptors %}
-				<li>{{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        <h1>all teams named the Raptors | Raptors</h1>
+        <ol>
+            {% for team in all_raptors %}
+                <li>{{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>all teams whose location includes "City" | Cities Teams</h1>
+        <h1>all teams whose location includes "City" | Cities Teams</h1>
 		<ol>
-			{% for team in all_cities_teams %}
-				<li>{{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+            {% for team in all_cities_teams %}
+                <li>{{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>all teams whose names begin with "T" | Teams Start With T</h1>
-		<ol>
-			{% for team in all_teams_start_with_t %}
-				<li>{{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        <h1>all teams whose names begin with "T" | Teams Start With T</h1>
+        <ol>
+            {% for team in all_teams_start_with_t %}
+                <li>{{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
-		<h1>All Teams Ordered By Location</h1>
-		<ol>
-			{% for team in all_teams_ordered_by_location %}
-				<li>{{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
+        <h1>All Teams Ordered By Location</h1>
+        <ol>
+            {% for team in all_teams_ordered_by_location %}
+                <li>{{team.team_name}}</li>
+            {% empty %}
+                <p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+            {% endfor %}
+        </ol>
 
         <h1>All Teams, Ordered By Name Reversed</h1>
         <ol>
