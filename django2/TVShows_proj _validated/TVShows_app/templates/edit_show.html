@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="main">
+    <div class="editShow">
+    <h1>Edit Show {{show.id}}</h1>
+    <form action="/shows/{{show.id}}/update" method="post">
+        {%csrf_token%}
+        <div>
+            <label>Title  </label>
+            <input type="text" name="title" value="{{show.title}}"><br>
+        </div>
+        <br>
+        <div>
+            <label>Network </label>
+            <input type="text" name="network"  value="{{show.network}}"><br>
+        </div>
+        <br>
+        <div>
+            <label>Release Date</label>
+            <input type="date" name="release_date"  value="{{show.release_date}}"><br>
+        </div>
+        <br>
+        <div>
+            <label>Description</label>
+            <textarea type="text" name="desc" cols="30" rows="5">{{show.desc}}</textarea>
+        </div>
+        <div>
+        <button>Update</button><br>
+    <a href="/shows/{{show.id}}">Go To Show</a><br>
+</div>
+    </form>
+</div>
+    <div>
+    <a href="/shows">Go Back</a>
+</div>
+</div>
+</body>
+</html>

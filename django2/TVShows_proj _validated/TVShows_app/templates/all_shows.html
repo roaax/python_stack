@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <div class="main">
+        <div class="show">
+    <h1>All Shows</h1>
+
+    <table>
+        <thead>
+            <te>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Network</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </te>
+        </thead>
+        <tbody>
+            {% for show in shows%}
+            <tr>
+                <td> <a href="/shows/{{show.id}}">{{show.id}}</a></td>
+                <td>{{show.title}} </td>
+                <td>{{show.network}} </td>
+                <td>{{show.release_date}} </td>
+                <td>
+                    <a href="/shows/{{show.id}}">Show</a> |
+                    <a href="/shows/{{show.id}}/edit">Edit</a> |
+                    <a href="/shows/{{show.id}}/delete">Delete</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
+    <div class="btnAddShow">
+    <a href="/shows/new">Add a Show</a>
+    </div>
+    </div>
+</body>
+</html>
