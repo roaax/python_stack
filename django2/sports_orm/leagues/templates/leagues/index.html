@@ -28,7 +28,7 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Baseball Leagues</h1>
+		<h1>All Baseball Leagues</h1>
 		<ol>
 			{% for league in baseball_leagues %}
 				<li>{{league.name}}</li>
@@ -36,7 +36,7 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Women Leagues</h1>
+		<h1>All Women Leagues</h1>
 		<ol>
 			{% for league in women_leagues %}
 				<li>{{league.name}}</li>
@@ -44,7 +44,7 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Hockey Leagues</h1>
+		<h1>all leagues where sport is any type of hockey</h1>
 		<ol>
 			{% for league in hockey_leagues %}
 				<li>{{league.name}}</li>
@@ -52,7 +52,7 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>all Leagues except Football</h1>
+		<h1>all leagues where sport is something OTHER THAN football</h1>
 		<ol>
 			{% for league in leagues_are_not_football %}
 				<li>{{league.name}} </li>
@@ -60,7 +60,7 @@
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
 		</ol>
-		<h1>Conferences Leagues</h1>
+		<h1>all leagues that call themselves "conferences" | Conferences Leagues</h1>
 		<ol>
 			{% for league in conferences_leagues %}
 				<li>{{league.name}}</li>
@@ -69,7 +69,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Atlantic Leagues</h1>
+		<h1>all leagues in the Atlantic region | Atlantic Leagues</h1>
 		<ol>
 			{% for league in atlantic_leagues %}
 				<li>{{league.name}}</li>
@@ -78,7 +78,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Dallas Teams</h1>
+		<h1>all teams based in Dallas | Dallas Teams</h1>
 		<ol>
 			{% for team in dallas_teams %}
 				<li>{{team.team_name}}</li>
@@ -87,7 +87,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Raptors</h1>
+		<h1>all teams named the Raptors | Raptors</h1>
 		<ol>
 			{% for team in raptors %}
 				<li>{{team.team_name}}</li>
@@ -96,7 +96,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Cities Teams</h1>
+		<h1>all teams whose location includes "City" | Cities Teams</h1>
 		<ol>
 			{% for team in cities_teams %}
 				<li>{{team.team_name}}</li>
@@ -105,7 +105,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Teams Start With T</h1>
+		<h1>all teams whose names begin with "T" | Teams Start With T</h1>
 		<ol>
 			{% for team in teams_start_with_t %}
 				<li>{{team.team_name}}</li>
@@ -114,7 +114,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Ordered Teams By Location</h1>
+		<h1>All Teams Ordered By Location</h1>
 		<ol>
 			{% for team in ordered_teams_by_location %}
 				<li>{{team.team_name}}</li>
@@ -123,7 +123,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Ordered Teams By Name Reversed</h1>
+		<h1>All Teams, Ordered By Name Reversed</h1>
 		<ol>
 			{% for team in ordered_teams_by_name_reverse %}
 				<li>{{team.team_name}}</li>
@@ -132,7 +132,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Players With Last Name Cooper</h1>
+		<h1>Every player with last name "Cooper"</h1>
 		<ol>
 			{% for player in players_with_lname_cooper %}
 				<li>{{player.first_name}} {{player.last_name}}</li>
@@ -141,7 +141,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Players With First Name Joshua</h1>
+		<h1>Every player with first name "Joshua"</h1>
 		<ol>
 			{% for player in players_with_fname_joshua %}
 				<li>{{player.first_name}} {{player.last_name}}</li>
@@ -150,7 +150,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Players With Last Name Cooper Without Joshua</h1>
+		<h1>Players With Last Name Cooper EXCEPT Joshua as first name</h1>
 		<ol>
 			{% for player in players_with_lname_cooper_without_joshua %}
 				<li>{{player.first_name}} {{player.last_name}}</li>
@@ -159,7 +159,7 @@
 			{% endfor %}
 		</ol>
 
-		<h1>Alexander(s) and Wyatt(s)</h1>
+		<h1>all players with first name "Alexander" OR first name "Wyatt" </h1>
 		<ol>
 			{% for player in alexander_or_wyatt %}
 				<li>{{player.first_name}} {{player.last_name}}</li>
