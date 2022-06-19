@@ -12,14 +12,22 @@ def index(request):
 
 # Creat new book to table
 def addBook(request):
-        if request.method['form']=='POST':
+        if request.method=='POST':
             _addBook= Book.objects.create(
                 title=request.POST['title'],
                 desc=request.POST['desc'],
             )
             _addBook.save()
         return redirect('/')
-        
+
+def delete(request, _idBook):
+    book = Book.objects.get(id=_idBook)
+    book.delete()
+    return redirect('/')
+
+def goAuthor(request):
+    return redirect('/authors')
+
 
 def author(request):
     authors = Author.objects.all()
@@ -34,8 +42,7 @@ def addAuthor(request):
             _addAuthor= Author.objects.create(
                 first_name=request.POST['first_name'],
                 last_name=request.POST['last_name'],
-                notes=request.POST['notes'],
-                
+                notes=request.POST['notes'],     
             )
             _addAuthor.save()
         return redirect('/authors')
@@ -50,7 +57,7 @@ def book_info(request , book_id):
 
 # Add author to the book in page 2
 def addAuthorToBook(request, book_id):
-    book= Book.objects.get(id=book_id),
+    book= Book.objects.get(id=book_id)
     author= Author.objects.get(id=request.POST['author_id'])
     book.authors.add(author)
     
@@ -66,12 +73,16 @@ def author_info(request, author_id):
 
 
 def addBookToAuthor(request, author_id):
-    author= Author.objects.get(id=author_id),
-    book= Book.objects.get(id=request.POST['Book_id'])
-
+    author= Author.objects.get(id=author_id)
+    book= Book.objects.get(id=request.POST['book_id'])
     author.books.add(book)
     
     return redirect(f"/authors/{author_id}")
+
+def delete_author(request, _idAuthor):
+    author = Author.objects.get(id=_idAuthor)
+    author.delete()
+    return redirect('/authors')
 
 # 
 #                 

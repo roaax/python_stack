@@ -5,23 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books & Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
+    <div class="main">
+    <div class="addAuthor">
     <form action="/addAuthor" method="post">
     {% csrf_token%}
+    <h1>Add an Author</h1>
     <div>
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" required>
+        <label for="first_name">First Name </label>
+        <input type="text" name="first_name" required><br>
     </div>
+    <br>
     <div>
-        <label for="last_name">last Name</label>
-        <input type="text" name="flast_name" required>
+        <label for="last_name">Last Name </label>
+        <input type="text" name="last_name" required>
     </div>
+    <br>
     <div>
-        <label for="notes">Notes</label>
-        <textarea name="notes" cols="30" rows="10" required></textarea>
+        <label for="notes">Notes:</label><br>
+        <textarea name="notes" cols="10" rows="5"></textarea>
     </div>
     <button>Add</button>
+    </div>
     </form>
         <table>
             <thead>
@@ -36,13 +45,13 @@
                 <tr>
                     <td>{{author.id}}</td>
                     <td>{{author.first_name}} {{author.last_name}}</td>
-                    <td>
-                        <a href="/authors/{{author.id}}/">View</a>
-                    </td>
+                    <td><a href="/authors/{{author.id}}/">View </a>|
+                    <a href="/delete_author/{{author.id}}">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
             </tbody>
         </table>
+    </div>
 </body>
 </html>

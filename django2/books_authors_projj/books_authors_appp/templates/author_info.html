@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books & Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-    <h1>{{author.first_name}}
+    <div class="main">
+        <div class="authorInfo">
+    <h1> Author Name: {{author.first_name}}
         {{author.last_name}}
     </h1>
     <p>ID: {{author.id}}</p>
-    <p>Notes: <h6>{{author.notes}}</h6></p>
-
-    <h4>Books:</h4>
+    <p>Notes:<b>{{author.notes}}</b></p>
+    <h3>Books:</h3>
     <ul>
         {% for book in author.books.all %}
         <li>
@@ -21,7 +25,7 @@
         </li>
         {% endfor %}
     </ul>
-    <form action="/addBookToAuthor/{{author.id}}" method="post">
+    <form action="/addBookToAuthor/{{author.id}}/" method="post">
         {% csrf_token %}
         <select name="book_id">
             {%for book in books%}
@@ -30,5 +34,11 @@
         </select>
         <button>Add</button>
     </form>
+    <form action="/goAuthor/" method="post">
+        {% csrf_token%}
+        <button class ="goAuthor">Go back</button>
+    </form>
+    </div>
+    </div>
 </body>
 </html>

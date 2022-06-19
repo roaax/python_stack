@@ -4,12 +4,16 @@ urlpatterns = [
 
     path('', views.index),
     path('addBook',views.addBook),
-    path('books/<int:book_id>',views.book_info),
-    path('addAuthorToBook/<int:book_id>', views.addAuthorToBook),
-    path('authors',views.author),
+    path('books/<int:book_id>/',views.book_info),
+    path('addAuthorToBook/<int:book_id>/', views.addAuthorToBook),
+    path('deleteBook/<_idBook>/',views.delete), 
+
+    path('authors/',views.author),
     path('addAuthor',views.addAuthor),
-    path('authors/<author_id>', views.author_info),
-    path('addBookToAuthor/<int:book_id>', views.addBookToAuthor),
+    path('authors/<author_id>/', views.author_info),
+    path('addBookToAuthor/<int:author_id>/', views.addBookToAuthor),
+    path('goAuthor/',views.goAuthor),
+    path('delete_author/<_idAuthor>',views.delete_author),
 ]
 
 # -------Add a Book Page----------

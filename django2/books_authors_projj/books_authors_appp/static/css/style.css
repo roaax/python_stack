@@ -1,0 +1,42 @@
+body{
+    background-image: url('img.webp');
+}
+.main{
+    margin: 10% auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(232, 213, 236, 0.447);
+    width: 70%;
+    height: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: rgb(27, 27, 27);
+}
+.addBook, .addAuthor{
+    display: flex;
+}
+h1{
+    color: rgb(35, 75, 93);
+}
+.table, th ,td{
+    border: 1px solid;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.authorInfo{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    color: rgb(132, 70, 111);
+}
+tr:hover {background-color: coral;}
+th {
+    background-color: #aeb3b5cc;
+
+}
