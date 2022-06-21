@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <title>Login & Registration</title>
+</head>
+<body>
+    <form action="/register" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname" required>
+        </div>
+        <div>
+            <label for="lname" >Last Name: </label>
+            <input type="text" name="lname" required>
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" required>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
