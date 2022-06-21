@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Amadon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="display-4 float-left">Amadon Store!</h1>
+            <br>
+            <br>
+            <div class="col-10">
+                <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in all_products %}
+                    <tr>
+                        <form action="/checkout" method="post">
+                            {% csrf_token %}
+                            <td>{{product.description}}</td>
+                            <input type="hidden" name="product_name" value="{{product.description}}">
+                            <td><input type="hidden" name="product_id" value="{{product.id}}">{{product.price}}</td>
+                            <td><select name="quantity">
+                                <option value="1">1</option>              
+                                <option value="2">2</option>              
+                                <option value="3">3</option>              
+                            </select></td>
+                            <td><input type="submit" value="Buy!"></td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
