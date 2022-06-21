@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Courses</title>
+</head>
+<body class="bg-light bg-opacity-10">
+    <div class="container w-50 mx-auto" >
+        <h1 class="my-4 d-flex justify-content-center">Add a new Course</h1>
+        <form action="/add_course/" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="description">Description:</label>
+                <textarea class="form-control" name="desc" rows="3"></textarea>
+            </div>
+            {%for m in messages%}
+            <small style="color:red;">
+                <h6>{{m}}</h6>
+            </small>
+            {%endfor%}
+            <div class="mb-3 ">
+            <button type="submit" class="btn btn-primary" role="button" data-bs-toggle="button">Add</button>
+            </div>
+        </form>
+
+        <div class="my-5">
+            <h1 class="my-4 d-flex justify-content-center">Courses:</h1>
+            <table class="table table-striped back">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date Added</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for course in courses%}
+                    <tr>
+                        <td>{{course.name}}</td>
+                        <td>{{course.desc}}</td>
+                        <td>{{course.created_at}}</td>
+                        <td> <a href="/go_remove/{{course.id}}">remove</a> 
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>
