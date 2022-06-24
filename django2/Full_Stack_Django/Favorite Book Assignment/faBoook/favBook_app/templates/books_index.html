@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Favorite Books</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body  style="background-color: #e3f2fd;">
+
+    <div class="container mt-4 w-50 mx-auto">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %} alert-success {% else %} alert-danger {% endif %} alert-dismissible fade show"
+            role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container d-flex justify-content-between mt-4 ">
+
+        <h1> Welcome, {{user.fname}}!</h1>
+
+        <div class="actions">
+
+            <a class="btn btn-primary" href="/show" role="button">Go back</a>
+            <a class="btn btn-primary  text-bg-danger" href="/logout" role="button">Log out</a>
+        </div>
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-between">
+        <form class="container" action="/update_book/{{book.id}}" method="POST">
+            {% csrf_token %}
+            <h1 class="display-4">
+                {% if user.id == book.uploaded_by.id %}
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <input type="text" class="form-control w-50" name="title" value="{{book.title}}">
+                    </div>
+                </div>
+                {% else %}
+                <p>{{book.title}}</p>
+                {% endif %}
+            </h1>
+
+            <p>Added By:{{book.uploaded_by.fname}} {{book.uploaded_by.lname}}</p>
+            <p>Added On: {{book.created_at}}</p>
+            <p>Last Updated On: {{book.updated_at}}</p>
+            <p class="d-flex">
+            <p>Description:</p>
+            {% if user.id == book.uploaded_by.id %}
+            <div class="mb-3">
+                <textarea class="form-control w-50" name="description" rows="3">{{book.description}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-white text-dark border border-2 border-dark">Update</button>
+            <a class="btn btn-danger border border-2 border-dark" href="/delete_book/{{book.id}}"
+                role="button">Delete</a>
+            {% else %}
+            <p> {{book.description}}</p>
+            {% endif %}
+            </p>
+        </form>
+
+        <div class="container">
+            <h1>Users who like this book: </h1>
+            <ul>
+                {% for user in book.users_who_like.all %}
+                <li>{{user.fname}} {{user.lname}}</li>
+                {% endfor %}
+            </ul>
+            {% if user in book.users_who_like.all %}
+                <a href="/unlikebook/{{book.id}}">Un-Favorite</a>
+            {% else %}
+                <a href="/likebook/{{book.id}}">Add to Favorites</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
